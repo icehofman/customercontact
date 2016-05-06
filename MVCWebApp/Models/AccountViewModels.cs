@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MVCWebApp.Models
+namespace CCMWebApp.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

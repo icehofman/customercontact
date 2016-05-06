@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MVCWebApp
+namespace CCMWebApp
 {
     public class BundleConfig
     {

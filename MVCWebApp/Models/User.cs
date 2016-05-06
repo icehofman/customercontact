@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MVCWebApp.Models
+namespace CCMWebApp.Models
 {
     using System;
     using System.Collections.Generic;

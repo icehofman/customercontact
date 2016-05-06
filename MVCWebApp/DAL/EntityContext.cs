@@ -1,4 +1,4 @@
-﻿using MVCWebApp.Models;
+﻿using CCMWebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVCWebApp.DAL
+namespace CCMWebApp.DAL
 {
     public class EntityContext : DbContext
     {

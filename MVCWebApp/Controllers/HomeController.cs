@@ -1,4 +1,4 @@
-﻿using MVCWebApp.Models;
+﻿using CCMWebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,13 +6,13 @@ using System.Web;
 using System.Web.Mvc;
 using Helpers;
 using PagedList;
-using MVCWebApp.DAL;
+using CCMWebApp.DAL;
 using System.Data.SqlClient;
 using System.Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace MVCWebApp.Controllers
+namespace CCMWebApp.Controllers
 {
     public class HomeController : Controller
     {
@@ -137,7 +137,7 @@ namespace MVCWebApp.Controllers
 
             using (var cn = new SqlConnection(
                 @"Data Source=(LocalDB)\v11.0;
-                AttachDbFilename='C:\Cursos\Testes\MVCWebApp\App_Data\Database.mdf';
+                AttachDbFilename='C:\Cursos\Testes\CCMWebApp\App_Data\Database.mdf';
                 Integrated Security=True"))
             {
                 string sql = string.Concat(@"SELECT c.ClientId, c.Name, c.Phone, c.Gender, c.LastPurchase, ",
@@ -301,7 +301,7 @@ namespace MVCWebApp.Controllers
             List<Region> regions = new List<Region>();
             using (var cn = new SqlConnection(
                 @"Data Source=(LocalDB)\v11.0;
-                AttachDbFilename='C:\Cursos\Testes\MVCWebApp\App_Data\Database.mdf';
+                AttachDbFilename='C:\Cursos\Testes\CCMWebApp\App_Data\Database.mdf';
                 Integrated Security=True"))
             {
                 string sql = @"SELECT * FROM [dbo].[Region]";
@@ -349,7 +349,7 @@ namespace MVCWebApp.Controllers
             List<City> cities = new List<City>();
             using (var cn = new SqlConnection(
                 @"Data Source=(LocalDB)\v11.0;
-                AttachDbFilename='C:\Cursos\Testes\MVCWebApp\App_Data\Database.mdf';
+                AttachDbFilename='C:\Cursos\Testes\CCMWebApp\App_Data\Database.mdf';
                 Integrated Security=True"))
             {
                 string sql = @"SELECT * FROM [dbo].[City]";
@@ -396,7 +396,7 @@ namespace MVCWebApp.Controllers
             List<Classification> classifications = new List<Classification>();
             using (var cn = new SqlConnection(
                 @"Data Source=(LocalDB)\v11.0;
-                AttachDbFilename='C:\Cursos\Testes\MVCWebApp\App_Data\Database.mdf';
+                AttachDbFilename='C:\Cursos\Testes\CCMWebApp\App_Data\Database.mdf';
                 Integrated Security=True"))
             {
                 string sql = @"SELECT * FROM [dbo].[Classification]";
