@@ -7,11 +7,7 @@ using System.Web.Mvc;
 namespace Helpers
 {
     public class CombosHelper 
-    {
-        private CombosHelper() {}
-        private DatabaseEntities db = new DatabaseEntities();
-        
-        #region ComboBox GENDER
+    {        
         public static SelectList BuildComboGender(string gender)
         {
             SelectList selectedList;
@@ -24,7 +20,5 @@ namespace Helpers
             else 
                 return selectedList = new SelectList(lista, "Value", "Text");
         }
-        #endregion
-
     }
 }

@@ -34,7 +34,6 @@ namespace CCMWebApp.Models
         [Display(Name = "User Name")]
         public string UserName { get; set; }
 
-        //[Required]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
