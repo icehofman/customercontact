@@ -441,19 +441,5 @@ namespace CCMWebApp.Controllers
             return selectedList;
         }
         #endregion
-
-        #region Action Result
-        public ActionResult About()
-        {
-            ViewBag.Message = "Solution to be implemented";
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "In case you need to contact me";
-            return View();
-        }
-        #endregion
     }
 }
