@@ -45,7 +45,7 @@
                     @Html.DropDownList("SearchClassification", (SelectList)ViewBag.ClassificationCombo, "All", new { id = "ddlClassification", @class = "form-control" })
                 </div>
             </div>    
-            if (@user.UserName == "Admin") {
+            if (@user.UserName == "admin@sellseverything.com") {
                 <div class="form-group" id ="divSeller" >
                     @Html.Label("Seller", new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
@@ -99,7 +99,7 @@
                 <th>
                     @Html.ActionLink("Last Purchase", "Index", new { sortOrder = ViewBag.LastPurchaseSortParm, currentFilter = ViewBag.FilterName })
                 </th>
-                @if (user.UserName == "Admin") {
+                @if (user.UserName == "admin@sellseverything.com") {
                     <th>
                         @Html.ActionLink("Seller", "Index", new { sortOrder = ViewBag.SellerSortParm, currentFilter = ViewBag.FilterName })
                     </th>
@@ -138,7 +138,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.LastPurchase)
                 </td>
-                @if (user.UserName == "Admin") {
+                @if (user.UserName == "admin@sellseverything.com") {
                     <td>
                         @Html.DisplayFor(modelItem => item.Seller.UserName)
                     </td>
