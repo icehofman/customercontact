@@ -1,17 +1,12 @@
 ﻿using CCMWebApp.Models;
+using Helpers;
+using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Helpers;
-using PagedList;
-using CCMWebApp.DAL;
-using System.Data.SqlClient;
-using System.Data;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System.IO;
 
 namespace CCMWebApp.Controllers
 {

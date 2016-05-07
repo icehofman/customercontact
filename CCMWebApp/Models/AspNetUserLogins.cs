@@ -9,9 +9,7 @@
 
 namespace CCMWebApp.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+
     public partial class AspNetUserLogins
     {
         public string UserId { get; set; }
