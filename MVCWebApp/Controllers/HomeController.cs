@@ -11,13 +11,21 @@ using System.Data.SqlClient;
 using System.Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.IO;
 
 namespace CCMWebApp.Controllers
 {
     public class HomeController : Controller
-    {
+    {        
         const string rubish = "System.Web.Mvc.SelectList";
         private DatabaseEntities db = new DatabaseEntities();
+
+        private string SqlConn()
+        {
+            string path = HttpContext.Server.MapPath("~/App_Data/Database.mdf");
+            return @"Data Source=(LocalDB)\v11.0;AttachDbFilename='" + path + "';Integrated Security=True";
+
+        }
 
         #region ViewResult INDEX
         // Get/Post
@@ -135,10 +143,7 @@ namespace CCMWebApp.Controllers
         {
             ICollection<Client> clients = null;
 
-            using (var cn = new SqlConnection(
-                @"Data Source=(LocalDB)\v11.0;
-                AttachDbFilename='C:\Cursos\Testes\CCMWebApp\App_Data\Database.mdf';
-                Integrated Security=True"))
+            using (var cn = new SqlConnection(SqlConn()))
             {
                 string sql = string.Concat(@"SELECT c.ClientId, c.Name, c.Phone, c.Gender, c.LastPurchase, ",
                                             "seller.Id, seller.UserName, seller.Discriminator, ",
@@ -299,10 +304,7 @@ namespace CCMWebApp.Controllers
         public SelectList BuildComboRegion(string region)
         {
             List<Region> regions = new List<Region>();
-            using (var cn = new SqlConnection(
-                @"Data Source=(LocalDB)\v11.0;
-                AttachDbFilename='C:\Cursos\Testes\CCMWebApp\App_Data\Database.mdf';
-                Integrated Security=True"))
+            using (var cn = new SqlConnection(SqlConn()))
             {
                 string sql = @"SELECT * FROM [dbo].[Region]";
 
@@ -347,10 +349,7 @@ namespace CCMWebApp.Controllers
         public SelectList BuildComboCity(string city)
         {
             List<City> cities = new List<City>();
-            using (var cn = new SqlConnection(
-                @"Data Source=(LocalDB)\v11.0;
-                AttachDbFilename='C:\Cursos\Testes\CCMWebApp\App_Data\Database.mdf';
-                Integrated Security=True"))
+            using (var cn = new SqlConnection(SqlConn()))
             {
                 string sql = @"SELECT * FROM [dbo].[City]";
 
@@ -394,10 +393,7 @@ namespace CCMWebApp.Controllers
         public SelectList BuildComboClassification(string classification)
         {
             List<Classification> classifications = new List<Classification>();
-            using (var cn = new SqlConnection(
-                @"Data Source=(LocalDB)\v11.0;
-                AttachDbFilename='C:\Cursos\Testes\CCMWebApp\App_Data\Database.mdf';
-                Integrated Security=True"))
+            using (var cn = new SqlConnection(SqlConn()))
             {
                 string sql = @"SELECT * FROM [dbo].[Classification]";
 
