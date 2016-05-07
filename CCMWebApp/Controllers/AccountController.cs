@@ -48,7 +48,7 @@ namespace CCMWebApp.Controllers
                     Session["user"] = user;
                     TempData["userName"] = user.UserName;
 
-                    if (user.UserName.Equals("Admin"))
+                    if (user.UserName.Equals("admin@sellseverything.com"))
                         TempData["userId"] = null;
                     else
                         TempData["userId"] = user.Id;
