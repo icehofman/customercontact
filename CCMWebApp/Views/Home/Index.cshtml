@@ -3,14 +3,50 @@
 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                onClose: function (selectedDate) {
+                    $("#SearchEndDate").datepicker("option", "minDate", selectedDate);
+                }
+            });
+
+            $("#SearchEndDate").datepicker({
+                changeMonth: true
+            });
+        });
+
+        function ClearFields() {
+            $("#SearchName").val("");
+            SetValueSelectBox("#ddlGender", "");
+            SetValueSelectBox("#ddlCity", "");
+            SetValueSelectBox("#ddlRegion", "");
+            SetValueSelectBox("#ddlClassification", "");
+            SetValueSelectBox("#ddlSeller", "");
+
+            $("#SearchStartDate").val("");
+            $("#SearchEndDate").val("");
+
+            $("#SearchName").focus();
+        }
+
+        function SetValueSelectBox(selectName, valueSelect) {
+            if ((valueSelect != null) && (valueSelect != undefined)) {
+                $(selectName).val(valueSelect);
+            }
+        }
+    </script>
+}   
+
 @{
     ViewBag.Title = "Customer List";
     var user = ((Microsoft.AspNet.Identity.EntityFramework.IdentityUser)(Session["user"]));
             
 }
-<br />  
-    
-    
+<br />     
 <div class="row">
     <div class="col-md-8">
         @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "form-horizontal"}))
@@ -158,35 +194,3 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
     searchCity = ViewBag.CityCombo, searchSeller = ViewBag.SellerCombo}))
 
 <b>User: @user.UserName</b>
-<script type="text/javascript">
-    $("#datepicker").datepicker({
-        changeMonth: true,
-        onClose: function (selectedDate) {
-            $("#SearchEndDate").datepicker("option", "minDate", selectedDate);
-        }
-    });
-
-    $("#SearchEndDate").datepicker({
-        changeMonth: true
-    });
-
-    function ClearFields() {
-        $("#SearchName").val("");
-        SetValueSelectBox("#ddlGender", "");
-        SetValueSelectBox("#ddlCity", "");
-        SetValueSelectBox("#ddlRegion", "");
-        SetValueSelectBox("#ddlClassification", "");
-        SetValueSelectBox("#ddlSeller", "");
-        
-        $("#SearchStartDate").val("");
-        $("#SearchEndDate").val("");
-
-        $("#SearchName").focus();
-    }
-        
-    function SetValueSelectBox(selectName, valueSelect) {
-        if ((valueSelect != null) && (valueSelect != undefined)) {
-            $(selectName).val(valueSelect);
-        }
-    }
-</script>
